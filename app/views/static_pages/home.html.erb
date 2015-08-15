@@ -1,1 +1,25 @@
-<img id="mainImage" src="<%= image_url 'waldo.jpg' %>">
+<div class="main">
+  <img id="mainImage" src="<%= image_url 'waldo2.jpg' %>">
+
+  <div id="targetingBox">
+    <p>Who did you find?</p>
+    <button onClick="checkAnswer('waldo')">Waldo</button>
+    <button onClick="checkAnswer('wizardo')">Wizardo</button>
+    <button onClick="checkAnswer('bandido')">Bandido</button>
+  </div>
+</div>
+
+<div class="sideBar">
+  <div class="character">
+    <img id="waldo" src="<%= image_url 'waldoBig.png' %>">
+    <p>Waldo</p>
+  </div>
+  <div class="character">
+    <img id="wizardo" src="<%= image_url 'wizardBig.png' %>">
+    <p>Wizardo</p>
+  </div>
+  <div class="character">
+    <img id="bandido" src="<%= image_url 'banditBig.png' %>">
+    <p>Bandido</p>
+  </div>
+</div>
