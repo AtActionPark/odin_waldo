@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get '/locations', to: 'static_pages#locations'
+  get '/checkCharacter', to: 'static_pages#checkCharacter'
 end

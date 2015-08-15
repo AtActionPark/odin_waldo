@@ -59,3 +59,11 @@ button{
 #waldo, #wizardo, #bandido{
   border:3px solid red;
 }
+
+.alert-custom{
+  color:red;
+  position:absolute;
+  z-index: 10;
+  border:2px solid black;
+  background-color: white,
+}
