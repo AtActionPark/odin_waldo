@@ -1,4 +1,5 @@
 var mouseX,mouseY;
+var counter = 0;
 
 $(document).ready(function() {
   setUpClickHandler();
@@ -26,10 +27,10 @@ function checkAnswer(name){
   $.ajax({
       url:'/locations',
       type: "GET",
+      data: {character: name, x: mouseX, y: mouseY},
       dataType:"json",
       success: function(json){
-        console.log(json[name]);
-        handleAnswer(json,name);
+        handleAnswer(json);
         $('#targetingBox').hide();
       },
       error: function( xhr, status, errorThrown ) {
@@ -41,15 +42,12 @@ function checkAnswer(name){
     })
 }
 
-function handleAnswer(json,name){
-  if(mouseX> json[name].left 
-    && mouseX< json[name].left + json[name].width
-    && mouseY> json[name].top 
-    && mouseY< json[name].top + json[name].height
-    )
-    hideCharacter(name,json[name].left,json[name].top,json[name].width,json[name].height);
+function handleAnswer(data){
+  if(data)
+    hideCharacter(data.name,data.left,data.top,data.width,data.height);
   else
     alert('nope');
+
 }
 
 function hideCharacter(name,x,y,w,h){
@@ -57,6 +55,12 @@ function hideCharacter(name,x,y,w,h){
   characterDiv.css({left:x, top:y, height:h,width:w})
   $('.main').append(characterDiv);
   $('#'+name).css({border: '3px solid green'})
+  counter++;
+  if(counter==3){
+    $('#targetingBox').hide();
+    alert('nice');
+    location.reload();
+  }
 }
 
 
